@@ -2,6 +2,12 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+// React Native configuration
+project.ext.react = [
+    entryFile: "index.js",
+    enableHermes: true,  // Enable Hermes
+]
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -103,6 +109,14 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            if (project.ext.react.enableHermes.toBoolean()) {
+                // Hermes JS Bytecode is bundled and included in the APK
+                def hermesPath = file("../../node_modules/hermes-engine")
+                if (hermesPath.exists()) {
+                    project.ext.react.bundleCommand = "ram-bundle"
+                    project.ext.react.extraPackagerArgs = ["--entry-file", entryFile, "--bundle-output", "$buildDir/generated/assets/react/${targetName}/index.android.bundle", "--dev", "false", "--platform", "android", "--assets-dest", "$buildDir/generated/res/react/${targetName}", "--sourcemap-output", "$buildDir/generated/sourcemaps/react/${targetName}/index.android.bundle.map"]
+                }
+            }
         }
     }
 }
@@ -111,7 +125,7 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
-    if (hermesEnabled.toBoolean()) {
+    if (project.ext.react.enableHermes.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
