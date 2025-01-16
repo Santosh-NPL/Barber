@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TextInput, Provider as PaperProvider } from 'react-native-paper';
 import SplashScreen from 'react-native-splash-screen';
+import fontfamily from './src/constant/fontfamily';
 
 const App: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -14,7 +15,7 @@ const App: React.FC = () => {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <Text style={styles.title}>App</Text>
+        <Text style={styles.title}>Atithisewa</Text>
         <TextInput
           label="Password"
           value={password}
@@ -39,8 +40,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+  
     marginBottom: 20,
+    fontFamily:"Righteous",
   },
   input: {
     width: '100%',
