@@ -1,4 +1,5 @@
 {
+  "atithisewa": "Atithisewa",
   "welcome": "Welcome",
   "login": "Login",
   "logout": "Logout",
@@ -28,6 +29,16 @@
   "placeholder_mobile": "Enter your mobile number",
   "remember_me": "Remember me",
   "forget_password": "Forget password",
+  "otp": "One Time Password verification",
+  "otp_success_message": "Enter the 6-digit code we sent to {{mobileNo}}",
+  "otp_message": "A 6 digit verification code will be send on your mobile number",
   "no_account": "Don't have an account?",
-  "sign_up": "Sign up"
+  "sign_up": "Sign up",
+  "proceed": "PROCEED",
+
+  "password_required": "Password is required",
+  "password_min_length": "Password must be at least 6 characters",
+  "confirm_password_required": "Please confirm your password",
+  "password_mismatch": "Passwords do not match"
+
 }

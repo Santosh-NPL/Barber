@@ -1,3 +1,4 @@
+import "./global.css"
 import './src/gesture-handler'; // Import the gesture handler file
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
@@ -6,6 +7,7 @@ import i18next from './src/i18n';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthNavigator } from './src/navigation/AuthNavigator'; // Import the AuthNavigator
+
 
 const App: React.FC = () => {
   const [password, setPassword] = useState('');

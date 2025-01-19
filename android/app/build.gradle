@@ -131,4 +131,13 @@ dependencies {
         implementation jscFlavor
     }
 }
+project.ext.vectoricons = [
+    iconFontNames: [
+        'MaterialCommunityIcons.ttf', // Include MaterialCommunityIcons
+        'FontAwesome.ttf',            // Include FontAwesome
+        'AntDesign.ttf',               // Include AntDesign
+        'Ionicons.ttf',
+        // Add other font files as needed
+    ]
+]
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
